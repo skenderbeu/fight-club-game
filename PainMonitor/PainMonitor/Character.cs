@@ -11,14 +11,19 @@ namespace PainMonitor
         private string _name;
         private PainLevel _painLevel;
 
+        public Body Body { get; set; }
+
         public Character(string name)
         {
             _name = name;
+            Body = new Body();
+
+            SetPainLevel();
         }
 
-        public void SetPainLevel(PainLevel painLevel)
+        private void SetPainLevel()
         {
-            _painLevel = painLevel;
+            _painLevel = new PainLevel(0);
         }
 
         public void InflictPain(int pain)
